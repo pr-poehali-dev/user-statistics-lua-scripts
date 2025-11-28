@@ -1,0 +1,36 @@
+{
+  "tests": [
+    {
+      "name": "Get all scripts",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "scripts": []
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Create new script",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "action": "create",
+        "title": "Test Script",
+        "code": "print('hello')",
+        "category": "Test",
+        "description": "Test description",
+        "author_id": 1
+      },
+      "expectedStatus": 201,
+      "expectedBody": {
+        "success": true,
+        "script": {
+          "title": "string",
+          "code": "string"
+        }
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

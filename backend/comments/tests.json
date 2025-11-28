@@ -1,0 +1,33 @@
+{
+  "tests": [
+    {
+      "name": "Get script comments",
+      "method": "GET",
+      "path": "/?script_id=1",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "comments": []
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Create script comment",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "type": "script",
+        "script_id": 1,
+        "author_id": 1,
+        "content": "Great script!"
+      },
+      "expectedStatus": 201,
+      "expectedBody": {
+        "success": true,
+        "comment": {
+          "content": "string"
+        }
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
